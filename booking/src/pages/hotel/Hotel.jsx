@@ -43,7 +43,7 @@ function Hotel() {
   const handleClick = (e) => {
     if (user) {
       setOpenModal(true);
-      e.prevenetDeafult();
+      e.preventDefault();
     } else {
       navigate("/login");
     }

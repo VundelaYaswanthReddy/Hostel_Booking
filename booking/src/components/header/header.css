@@ -71,11 +71,12 @@
     gap: 10px;
 }
 .headerSearchInput{
+    color: black;
     border: none;
     outline:none;
 }
 .headerSearchText{
-    color: lightgray;
+    color: black;
     cursor: pointer;
 }
 

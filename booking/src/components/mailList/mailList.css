@@ -8,7 +8,7 @@
     align-items: center;
     gap:20px;
     padding: 50px;
-    max-width: 1410px;
+    max-width: 1500px;
 }
 
 .mailInputContainer > input{
@@ -21,7 +21,7 @@
 }
 
 .mailInputContainer > button{
-    height: 50px;
+    height: 30px;
     background-color: #0071c2;
     color: white;
     font-weight: 500;

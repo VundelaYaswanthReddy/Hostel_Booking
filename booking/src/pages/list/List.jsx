@@ -23,7 +23,7 @@ function List() {
     `${API_URL}/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
   //console.log("Destination ", destination);
-  console.log("Dates in list page ",date);
+  console.log("Dates in list page ", date);
   const handleClick = () => {
     reFetch();
   };

@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [singup, setSignup] = useState(false);
   const { user, loading, error, dispatch } = useContext(AuthContext);
-
+  const [signupErr, setSignUperr] = useState("");
   const handleChange = (e) => {
     setCredentials((prev) => ({
       ...prev,
@@ -37,6 +37,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       dispatch({ type: "LOgin_FAILURE", payload: err.response.data });
+      console.log("Message ", error);
     }
   };
 
@@ -46,6 +47,7 @@ const Login = () => {
       const res = await axios.post(`${API_URL}/auth/register`, credentials);
       navigate("/");
     } catch (err) {
+      setSignUperr(err.message);
       console.log(err);
     }
   };
@@ -53,6 +55,8 @@ const Login = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
+      {error && <p>{error}</p>}
+
       <div className="hidden sm:block">
         <img
           className="w-full h-full object-cover rounded-lg"
@@ -66,7 +70,7 @@ const Login = () => {
           className="max-w-[400px] w-full  mx-auto bg-gray-900 p-8 px-8 rounded-lg"
         >
           <h2 className="text-4xl dark:text-white font-bold text-center">
-            {singup ? "Sing Up " : "Sing In"}
+            {singup ? "Sign Up " : "Sign In"}
           </h2>
           <div className="flex flex-col text-gray-400 py-2">
             <label htmlFor="">Username</label>
@@ -117,7 +121,7 @@ const Login = () => {
               >
                 Sign In
               </button>
-              <div onClick={() =>setSignup(true)}>
+              <div onClick={() => setSignup(true)}>
                 <p className="text-white text-center font-light cursor-pointer">
                   Don't have an account{" "}
                   <span className="cursor-pointer underline decoration-2 font-bold">
@@ -136,6 +140,10 @@ const Login = () => {
               >
                 Sign Up
               </button>
+
+              <p className="text-white text-center font-light cursor-pointer">
+                {signupErr !== " " ? signupErr : " "}
+              </p>
               <div
                 className="text-white text-center font-light cursor-pointer"
                 onClick={() => setSignup(false)}
