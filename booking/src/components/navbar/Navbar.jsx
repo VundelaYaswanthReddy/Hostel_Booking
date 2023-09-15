@@ -19,7 +19,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">HotelBooking</span>
+          <span className="logo">BOOKNSTAY</span>
         </Link>
 
         {user !== null ? (

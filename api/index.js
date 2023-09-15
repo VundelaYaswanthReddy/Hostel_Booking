@@ -13,7 +13,7 @@ dotenv.config()
 const connect = async () => {
 
     try{
-        await mongoose.connect(process.env.mongouri)
+        await mongoose.connect(process.env.MONGO)
         console.log("Connected to mongoDB")
     }
     catch(e)

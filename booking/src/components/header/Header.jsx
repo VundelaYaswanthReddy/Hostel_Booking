@@ -6,7 +6,8 @@ import {
   faCar,
   faPlane,
   faTaxi,
-} from "@fortawesome/free-solid-svg-icons";
+}
+  from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
@@ -19,6 +20,7 @@ import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 
+// 
 const Header = ({ type }) => {
   //for destination controller
   const [destination, setDestination] = useState("");
@@ -60,7 +62,7 @@ const Header = ({ type }) => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, date, options } });
     navigate("/hotels", { state: { destination, date, options } });
   };
-
+  const iconstyle = { cursor: 'pointer' };
   const { user } = useContext(AuthContext);
 
   return (
@@ -72,23 +74,23 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
+            <FontAwesomeIcon icon={faBed} style={iconstyle} />
             <span>Stays</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
+            <FontAwesomeIcon icon={faPlane} style={iconstyle} />
             <span>Flights</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
+            <FontAwesomeIcon icon={faCar} style={iconstyle}/>
             <span>Car rentals</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
+            <FontAwesomeIcon icon={faBed} style={iconstyle} />
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
+            <FontAwesomeIcon icon={faTaxi} style={iconstyle}/>
             <span>Airport taxis</span>
           </div>
         </div>
@@ -104,7 +106,7 @@ const Header = ({ type }) => {
             {!user && <button className="headerBtn" onClick={() =>navigate("/login")} >Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faBed} style={iconstyle} className="headerIcon" />
                 <input
                   type="text"
                   placeholder="where are you going?"
@@ -113,7 +115,7 @@ const Header = ({ type }) => {
                 />
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+                <FontAwesomeIcon icon={faCalendarDays} style={iconstyle} className="headerIcon" />
                 <span
                   onClick={() => {
                     setopenDate(!openDate);
@@ -142,7 +144,7 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                <FontAwesomeIcon icon={faPerson} style={iconstyle} className="headerIcon" />
                 <span
                   onClick={() => setopenOptions(!openOptions)}
                   className="headerSearchText"

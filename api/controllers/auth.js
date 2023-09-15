@@ -25,21 +25,25 @@ export const register = async (req, res, next) => {
 export const login = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
+    console.log(user);
     if (!user) return next(createError(500, "User not found"));
 
-    const isPasswordMatched = await bcrypt.compare(
+    const isPasswordMatched = await bcrypt.compareSync(
       req.body.password,
       user.password
     );
+    console.log(req.body.password);
+    console.log(user.password);
 
-    if (!isPasswordMatched)
+    if (!isPasswordMatched) {
+      console.log("hello");
       return next(createError(500, "Wrong request or password!!"));
-
+    }
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT
     );
-
+    console.log("hi");
     const { password, isAdmin, ...otherDetails } = user._doc;
     console.log(otherDetails);
     res

@@ -23,6 +23,7 @@ function List() {
     `${API_URL}/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
   //console.log("Destination ", destination);
+  console.log("Data", data);
   console.log("Dates in list page ", date);
   const handleClick = () => {
     reFetch();
@@ -114,7 +115,7 @@ function List() {
               "loading"
             ) : (
               <>
-                {data.map((item) => (
+                  {data.map((item) => (
                   <SearchItem item={item} key={item} />
                 ))}
               </>
