@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js"
@@ -9,7 +9,6 @@ import cookieParser from "cookie-parser";
 import cors from 'cors'
 const app = express()
 dotenv.config()
-
 const connect = async () => {
 
     try{
@@ -47,7 +46,7 @@ app.use((err,req, res,next) => {
     })
 })
 
-app.listen(8800 , () => {
+app.listen(8800,() => {
     connect()
     console.log("Serving on port 8800")
 })

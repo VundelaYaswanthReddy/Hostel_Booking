@@ -2,6 +2,7 @@ import "./featured.css";
 import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { API_URL } from "../../key";
+
 const Featured = () => {
   const { data, loading, error } = useFetch(
     `${API_URL}/hotels/countByCity?cities=Banglore,London,Madrid`
